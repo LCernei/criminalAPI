@@ -1,0 +1,6 @@
+flask
+mysql
+mysql-connector-python
+mysql-connector
+mysqlclient
+xlrd

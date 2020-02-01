@@ -5,8 +5,12 @@ import urllib.request
 import shutil
 import ssl
 
-mydb = mysql.connector.connect(host="localhost", user="root", passwd="faf", database="team4")
-
+mydb = mysql.connector.connect(
+  host="localhost",
+  user="root",
+  passwd="faf",
+  database="team4"
+)
 mycursor = mydb.cursor()
 mycursor.execute("DROP TABLE IF EXISTS crime_rates")
 mycursor.execute("CREATE TABLE IF NOT EXISTS crime_rates (crime_rate_id int NOT NULL AUTO_INCREMENT PRIMARY KEY, location VARCHAR(255), crime_type VARCHAR(255), number int)")
@@ -45,3 +49,4 @@ for col_idx in range(1, xl_sheet.ncols):
         
         print(f"{city}: {crime_type}: {cell_obj}")
 mydb.commit()
+mycursor.close()
